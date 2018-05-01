@@ -49,13 +49,21 @@ class Home extends CI_Controller {
 	}
 	public function editPost($id){
 		$this->load->library('form_validation');
-		$this->load->helper('url');
 		$temp = $this->post->getPostById($id);
 		if(count($temp)<1){
 			die('Artikel tidak ditemukan');
 		}
 		$data['result'] = $temp[0];
 		$data['edit'] = TRUE;
+		$data['slug'] = $id;
+		
+		$this->load->view('header');
+		$this->load->view('create',$data);
+		$this->load->view('footer');
+	}
+
+	public function doEdit(){
+		$this->load->library('form_validation');
 		$this->form_validation->set_rules('judul','Username','required');
 		$this->form_validation->set_rules('konten','Password','required');
 		
@@ -69,17 +77,23 @@ class Home extends CI_Controller {
 		$succeed = array();
 		
 		if(!$this->form_validation->run()===FALSE){
+			$data = null;
 			if($this->upload->do_upload('input_foto')){
-				$this->post->editPost($this->upload->data()['file_name'],$id);
-				redirect('tambahpost?sukses=yeah');
-			}else{
-				$succeed['error'] = array('error' => $this->upload->display_errors());
-			};
+				$data = array(
+					'thumbnail' => $this->upload->data()['file_name'],
+				);
+			}
+			$this->post->editPost($data);
+			redirect('tambahpost?edit=yeah');
+		}else{
+			$succeed['error'] = array('error' => $this->upload->display_errors());
+			echo "gagal";
 		}
 		$this->load->view('header');
-		$this->load->view('create',$data);
+		$this->load->view('create',$succeed);
 		$this->load->view('footer');
 	}
+
 	public function create(){
 		$this->load->library('form_validation');
 		$this->load->helper('url');

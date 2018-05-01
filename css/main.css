@@ -381,6 +381,10 @@ footer .icon{
   border: 1px solid var(--accentColor);
   border-radius: 5px;
   height: 35px;
+  width: 100%
+}
+.form-control.special{
+  border: 1px solid #aaa
 }
 .form-control:hover,
 .form-control:focus,
@@ -664,4 +668,36 @@ nav + *{
 }
 .text-capitalized{
   text-transform: capitalize
+}
+.hidden{
+  display: none
+}
+#gambar-thumbnail{
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down
+}
+.label-create{
+  margin-bottom: 10px;
+  color: #888;
+}
+.label-thumb{
+  background-color: #ccc;
+  height: 100px;
+  display: block;
+  width: 200px;
+  position: relative;
+  cursor: pointer;
+  z-index: 3;
+}
+.label-thumb::after{
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-weight: 900;
+  font-size: 50px;
+  color: #777;
+  z-index: -1;
 }

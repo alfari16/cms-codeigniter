@@ -44,6 +44,21 @@
       $this->db->delete('post');
     }
 
+    public function editPost($data){
+      $id = $this->input->post('slug');
+      $slug = url_title($this->input->post('judul'), 'dash', TRUE);
+      $tanggal = date('d').' '.$this->generateMonth().' '.date('Y');
+      $change = array(
+        'judul' => $this->input->post('judul'),
+        'konten' => $this->input->post('konten'),
+        'slug' => substr($slug,0,20),
+        'tanggal' => $tanggal
+      );
+      if($data['thumbnail']!==null) $change['thumbnail'] = $data['thumbnail'];
+      $this->db->where('slug', $id);
+      $this->db->update('post',$change);
+    }
+
     public function generateMonth(){
       $date = date('m');
       switch ($date) {
