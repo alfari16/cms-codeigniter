@@ -14,10 +14,10 @@
               <h1 class="post-title"><?php echo $data[0]['judul']; ?></h1>
             </div>
             <div class="right">
-              <a href="<?php base_url().$data[0]['slug']?>/edit">
+              <a href="<?php echo base_url().'post/'.$data[0]['slug'];?>/edit">
                 <i class="fa fa-pencil"></i> Edit
               </a>
-              <a href="<?php echo base_url().'post/'.$data[0]['slug']?>/hapus">
+              <a href="<?php echo base_url().'post/'.$data[0]['slug'];?>/hapus">
                 <i class="fa fa-trash"></i> Hapus
               </a>
             </div>

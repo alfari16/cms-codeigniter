@@ -9,11 +9,12 @@ class Home extends CI_Controller {
 	}
 	public function index(){
 		$data['rows'] = $this->post->getPost();
+		$data['sidenavData'] = $this->post->getSidenav();
 		$data['isIndex'] = TRUE;
 		$data['sidenav'] = TRUE;
 		$this->load->view('header');
 		$this->load->view('content',$data);
-		$this->load->view('sidenav');
+		$this->load->view('sidenav',$data);
 		$this->load->view('footer');
 	}
 	public function allPost(){
@@ -25,22 +26,24 @@ class Home extends CI_Controller {
 	}
 	public function getPost($id){
 		$data['data'] = $this->post->getPostById($id);
+		$data['sidenavData'] = $this->post->getSidenav();
 		$data['sidenav'] = TRUE;
 		if(count($data['data'])<1) $data['notfound'] = true;
 		$this->load->view('header');
 		$this->load->view('content_detail',$data);
-		$this->load->view('sidenav');
+		$this->load->view('sidenav',$data);
 		$this->load->view('footer');
 	}
 	public function deletePost($id){
 		$data['data'] = $this->post->getPostById($id);
+		$data['sidenavData'] = $this->post->getSidenav();
 		$data['sidenav'] = TRUE;
 		$data['delete'] = TRUE;
 		$data['slug'] = $id;
 		if(count($data['data'])<1) $data['notfound'] = true;
 		$this->load->view('header');
 		$this->load->view('content_detail',$data);
-		$this->load->view('sidenav');
+		$this->load->view('sidenav',$data);
 		$this->load->view('footer');
 	}
 	public function doDeletePost($id){

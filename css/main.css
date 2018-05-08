@@ -173,6 +173,8 @@ nav .flex-wrap{
   display: flex;
 }
 .admin-act{
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
   justify-content: space-between
 }
 .admin-act, .admin-act a{
@@ -208,17 +210,11 @@ nav .flex-wrap{
 .white:hover{
   box-shadow: 0 3px 5px rgba(0,0,0,0.1)
 }
-.popular .img-wrapper{
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
-  background-color: var(--bgcolor);
-  border-radius: 50%
-}
 .popular li{
   padding: 20px 20px;
   list-style: none;
   margin: -20px;
+  padding-bottom: 40px
 }
 .popular li:hover{
   background-color: var(--bgcolor)
@@ -232,14 +228,17 @@ nav .flex-wrap{
   border-top: 1px solid var(--bgcolor);
 }
 .popular .right{
-  flex: 1
+  flex: 1;
+  justify-content: center;
+  flex-direction: column
 }
 .popular .sub-title{
   line-height: 21px;
-  margin-bottom: 0
+  margin: 0
 }
 .popular .penulis{
-  margin-top: 8px
+  margin-top: 8px;
+  margin-bottom: 0
 }
 ul.link{
   display: flex;
@@ -412,6 +411,9 @@ footer .icon{
 .mt-3{
   margin-top: 15px;
 }
+.mt-5{
+  margin-top: 50px;
+}
 .login{
   border: 1px solid var(--accentColor);
   margin-top: 60px; 
@@ -440,21 +442,18 @@ footer .icon{
   font-weight: 100;
   color: #555
 }
+.login .login-title{
+  font-weight: 700
+}
+.text-danger{
+  color: red!important
+}
 .login .form-control{
   margin-bottom: 10px;
   height: 50px;
 }
 nav + *{
   margin-top: 80px
-}
-
-@media (min-width:992px){
-  .content-area {
-    width: 99%;
-    max-height: 1200px;
-    flex-flow: column wrap;
-    align-content: flex-start;
-  }
 }
 @media (max-width:992px){
   .container{
@@ -700,4 +699,31 @@ nav + *{
   font-size: 50px;
   color: #777;
   z-index: -1;
+}
+.img-content{
+  -moz-object-fit: scale-down;
+  object-fit: scale-down;
+  height: 100%;
+}
+.img-wrapper.content{
+  height: 100px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 6;
+}
+.img-wrapper-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 42px;
+  color: #777
+}
+.sidenav-img{
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px
+
 }

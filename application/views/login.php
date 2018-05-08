@@ -1,6 +1,11 @@
 <div class="login">
-<?php echo form_open('login/checkLogin');?>
-    <p class="title text-center login-title">Login sebagai Admin</p>
+<?php 
+    echo form_open('login/checkLogin');
+    if(isset($_GET['auth'])){
+?>
+    <p class="title text-danger text-center">Anda harus login terlebih dahulu.</p>
+    <?php } ?>    
+    <p class="title text-center login-title">Login</p>
     <input placeholder="Username" class="form-control" type="text" name="username" required>
     <input placeholder="Password" class="form-control" type="password" name="password" required>
     <?php echo validation_errors();?>

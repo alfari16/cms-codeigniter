@@ -4,19 +4,19 @@
       <div class="<?php echo $isIndex?'md8':'md12'; ?> sm9 xs12 pt-5">
         <p class="penulis jangka">
           <?php if($isIndex) { ?>
-          <span>Post terakhir</span>
+          <span>Post terbaru</span>
           <?php } else{?>
           <span>Semua post</span>
           <?php }?>
         </p>
-        <div class="content-area row">
+        <div class="row">
           <?php
             foreach ($rows as $row) {
           ?>
             <div class="<?php echo $isIndex?'md4':'md3'; ?> sm6 xs6">
               <div class="card">
-                  <figure class="img-wrapper">
-                    <img src="<?php echo base_url().'assets/'.$row['thumbnail'];?>" alt="<?php echo $row['judul'];?>">
+                  <figure class="img-wrapper content">
+                    <img class="img-content" src="<?php echo base_url().'assets/'.$row['thumbnail'];?>" alt="<?php echo $row['judul'];?>">
                   </figure>
                   <small class="date">
                     <?php echo $row['tanggal']; ?>
@@ -54,7 +54,7 @@
           ?>
         </div>
         <?php if($isIndex){?>
-        <div class="text-center">
+        <div class="text-center mt-5">
           <a href="<?php echo base_url();?>post" class="btn btn-primary btn-ajax">Muat Lebih banyak</a>
         </div>
         <?php } ?>

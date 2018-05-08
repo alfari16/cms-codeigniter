@@ -5,42 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tech Rags</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css">
 </head>
 <body>
-  <nav class="static">
-    <div class="container">
-      <div class="row">
-        <h1 class="blog-title">
-          Tech
-          <span>Rags</span>
-        </h1>
-        <ul class="link">
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="post-detail.html">Code</a>
-          </li>
-          <li>
-            <a href="post-detail.html">Lifehack</a>
-          </li>
-          <li>
-            <a href="post-detail.html">Music</a>
-          </li>
-          <li class="active">
-            <a href="about-me.html">About</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <section class="header">
+  <section class="header mt-5">
     <div class="background">
       <div class="left">
         <figure class="img-wrapper flex-wrap">
-          <img src="assets/me.JPG" alt="Alif Irfan Anshory">
+          <img src="<?php echo base_url(); ?>assets/me.JPG" alt="Alif Irfan Anshory">
         </figure>
       </div>
       <div class="right">
@@ -57,13 +30,29 @@
     </p>
   </section>
   <div class="text-center">
-    <button class="btn act" id="aktivitas">Aktivitas</button>
+    <button class="btn act" id="aktivitas">Activity</button>
   </div>
   <section class="activity">
 
   </section>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="<?php echo base_url(); ?>js/jquery.min.js"></script>
+  <script>
+    $("#aktivitas").click(function() {
+    $.ajax({
+      type: "GET",
+      url: "<?php echo base_url(); ?>activity/aktivitas.html",
+      headers: {
+        "Content-Type": "plain/html"
+      },
+      success: function(res) {
+        $(".activity").html(res);
+      },
+      error: function(err) {
+        console.log(err);
+      }
+    });
+  });
+  </script>
 </body>
 </html>

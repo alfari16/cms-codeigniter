@@ -8,6 +8,7 @@ $route['post/(:any)/hapus'] = 'Home/deletePost/$1';
 $route['post/(:any)/dodelete'] = 'Home/doDeletePost/$1';
 $route['tambahpost'] = 'Home/create';
 $route['login'] = 'Login';
+$route['about'] = 'About';
 $route['test'] = 'Home/test';
 $route['logout'] = 'Login/logout';
 $route['default_controller'] = 'Home';

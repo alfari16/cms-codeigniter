@@ -1,3 +1,9 @@
+<?php
+  if($this->session->userdata('id')===null){
+    redirect('login?auth=true');
+  }
+?>
+<script>$('nav').find('.post').removeClass('active');</script>
   <section class="post-baru">
     <div class="container">
       <?php 
@@ -21,6 +27,9 @@
         } 
         if(isset($edit)){
           echo form_open_multipart('home/doEdit');
+          ?>
+          <script>$('#home').removeClass('active');</script>
+          <?php
         }else{
           echo form_open_multipart('home/create');
         }

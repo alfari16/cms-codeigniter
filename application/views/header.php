@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>TechRags</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/main.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/main.css" />
   <link rel="icon shortcut" href="./assets/icon/favicon.png">
   <script src="<?php echo base_url()?>js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -21,19 +21,16 @@
         <div class="link-wrapper">
           <ul class="link">
             <li id="home">
-              <a href="<?php echo base_url()?>">Home</a>
+              <a href="<?php echo base_url()?>">Beranda</a>
             </li>
-            <li>
-              <a href="post-detail.html">Code</a>
-            </li>
-            <li>
-              <a href="post-detail.html">Lifehack</a>
+            <li class="post">
+              <a href="<?php echo base_url()?>post">Post</a>
             </li>
             <li>
               <a href="<?php echo base_url()?>tambahpost">Tambah Post</a>
             </li>
             <li>
-              <a href="about-me.html">About</a>
+              <a href="<?php echo base_url(); ?>about">Tentang</a>
             </li>
             <?php if($this->session->userdata('username')!==null){?>
             <li>

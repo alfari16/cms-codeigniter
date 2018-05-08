@@ -32,39 +32,21 @@
     <p class="title">Popular Post</p>
     <hr>
     <ul>
+      <?php 
+        foreach ($sidenavData as $data) {
+      ?>
       <li>
-        <a href="post-detail.html" class="flex-wrap">
-          <figure class="img-wrapper flex-wrap center">
-            <img src="<?php echo base_url()?>assets/peta.JPG" alt="">
-          </figure>
-          <div class="right">
-            <p class="title sub-title">Caching menggunakan Redis + Node.js</p>
-            <p class="penulis">Alif Irfan Anshory</p>
+        <a href="<?php echo base_url().'post/'.$data['slug'];?>" class="flex-wrap">
+          <img class="sidenav-img" src="<?php echo base_url().'assets/'.$data['thumbnail'];?>" alt="<?php echo $data['judul'];?>">
+          <div class="right flex-wrap">
+            <p class="title sub-title"><?php echo $data['judul'];?></p>
+            <p class="penulis"><?php echo $data['nama'];?></p>
           </div>
         </a>
       </li>
-      <li>
-        <a href="post-detail.html" class="flex-wrap">
-          <figure class="img-wrapper flex-wrap center">
-            <img src="<?php echo base_url()?>assets/good.JPG" alt="">
-          </figure>
-          <div class="right">
-            <p class="title sub-title">Mengenal Framework Vue.js</p>
-            <p class="penulis">Alif Irfan Anshory</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="post-detail.html" class="flex-wrap">
-          <figure class="img-wrapper flex-wrap center">
-            <img src="<?php echo base_url()?>assets/react.png" alt="">
-          </figure>
-          <div class="right">
-            <p class="title sub-title">Lifecycle Hook pada Framework React.js</p>
-            <p class="penulis">Alif Irfan Anshory</p>
-          </div>
-        </a>
-      </li>
+      <?php 
+        }
+      ?>
     </ul>
   </section>
   <section class="subscribe">

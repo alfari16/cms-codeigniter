@@ -6,24 +6,4 @@ $(document).ready(function(){
       $('nav').removeClass('static'); 
     }else $('nav').addClass('static');
   });
-  $("#aktivitas").click(function() {
-    $.ajax({
-      type: "GET",
-      url: "../aktivitas.html",
-      headers: {
-        "Content-Type": "plain/text"
-      },
-      success: function(res) {
-        $(".activity").html(res);
-      },
-      error: function(err) {
-        console.log(err);
-      }
-    });
-  });
-  var children = $('.content-area').children().length;
-  $('.content-area').children().each(function(index, val){
-    current+=$(val).outerHeight();
-  });
-  $('.content-area').css('height',children>3?(current/3):300);
 })

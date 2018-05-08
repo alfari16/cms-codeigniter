@@ -59,6 +59,15 @@
       $this->db->update('post',$change);
     }
 
+    public function getSideNav(){
+      $this->db->select('*');
+      $this->db->from('post,user');
+      $this->db->where('post.id_author = user.id');
+      $this->db->limit('3');
+      $query = $this->db->get();
+      return $query->result_array();
+    }
+
     public function generateMonth(){
       $date = date('m');
       switch ($date) {
