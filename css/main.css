@@ -211,10 +211,9 @@ nav .flex-wrap{
   box-shadow: 0 3px 5px rgba(0,0,0,0.1)
 }
 .popular li{
-  padding: 20px 20px;
+  padding: 5px 20px;
   list-style: none;
-  margin: -20px;
-  padding-bottom: 40px
+  margin: 0 -20px;
 }
 .popular li:hover{
   background-color: var(--bgcolor)
@@ -222,7 +221,8 @@ nav .flex-wrap{
 .sidebar hr{
   border-color: var(--accentColor);
   border-width: .6px;
-  margin: 15px 0
+  margin: 15px 0;
+  margin-bottom: 0
 }
 .popular li:not(:first-child){
   border-top: 1px solid var(--bgcolor);
@@ -376,7 +376,7 @@ footer .icon{
 }
 .form-control{
   flex: 1;
-  padding: 5px 20px;
+  padding: 5px 10px;
   border: 1px solid var(--accentColor);
   border-radius: 5px;
   height: 35px;
@@ -726,4 +726,25 @@ nav + *{
   border-radius: 50%;
   margin-right: 10px
 
+}
+.alert{
+  background-color: #FF9800;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px
+}
+.alert .btn{
+  margin-left: 20px;
+  background-color: white;
+  color: #333
+}
+.alert p{
+  color: #eee;
+  line-height: 30px;
+  flex: 1
+}
+.img-content-detail{
+  height: 300px;
+  object-fit: scale-down
 }

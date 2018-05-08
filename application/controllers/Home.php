@@ -51,6 +51,7 @@ class Home extends CI_Controller {
 		redirect('post');
 	}
 	public function editPost($id){
+		if($this->session->userdata('username'===null)){ redirect('login?auth=true');}
 		$this->load->library('form_validation');
 		$temp = $this->post->getPostById($id);
 		if(count($temp)<1){
@@ -98,6 +99,9 @@ class Home extends CI_Controller {
 	}
 
 	public function create(){
+		if($this->session->userdata('username')===null){ 
+			redirect('login?auth=true');
+		}
 		$this->load->library('form_validation');
 		$this->load->helper('url');
 		

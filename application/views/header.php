@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>TechRags</title>
+  <title>UIN Gallery</title>
+  <meta name="description" content="UIN Gallery adalah tempat terkumpulnya kreasi terbaik karya mahasiswa UIN Maliki">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/main.css" />
@@ -16,7 +17,7 @@
     <div class="container">
       <div class="flex-wrap">
         <h1 class="blog-title">
-          Tech<span>Rags</span><span class="admin"><?php echo $this->session->userdata('username')?'(Admin)':null;?></span>
+          UIN<span>Gallery</span><span class="admin"><?php echo $this->session->userdata('username')?'(Admin)':null;?></span>
         </h1>
         <div class="link-wrapper">
           <ul class="link">
@@ -24,10 +25,10 @@
               <a href="<?php echo base_url()?>">Beranda</a>
             </li>
             <li class="post">
-              <a href="<?php echo base_url()?>post">Post</a>
+              <a href="<?php echo base_url()?>post">Lihat Karya</a>
             </li>
             <li>
-              <a href="<?php echo base_url()?>tambahpost">Tambah Post</a>
+              <a href="<?php echo base_url()?>upload">Upload Karya</a>
             </li>
             <li>
               <a href="<?php echo base_url(); ?>about">Tentang</a>

@@ -2,6 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="<?php echo $isIndex?'md8':'md12'; ?> sm9 xs12 pt-5">
+        <?php if($isIndex) { 
+          $this->load->view('uingallery-desc');
+        } else{?>
+        <script>
+          $('nav .post').addClass('active');
+          $('#home').removeClass('active');
+        </script>
+        <?php } ?>
         <p class="penulis jangka">
           <?php if($isIndex) { ?>
           <span>Post terbaru</span>

@@ -7,7 +7,7 @@
         <?php }else{?>
         <div class="white">
           <figure class="img-wrapper">
-            <img src="<?php echo base_url()?>assets/react.png" alt="">
+            <img class="img-content-detail" src="<?php echo base_url().'assets/'.$data[0]['thumbnail']; ?>" alt="<?php echo $data[0]['judul']; ?>">
           </figure>
           <div class="flex-wrap admin-act mt-3">
             <div class="left">
