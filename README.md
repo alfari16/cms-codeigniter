@@ -13,4 +13,4 @@ Simple CMS with Codeigniter + MySQL
 ## Additional
 
 + Database Name : tugaspemrogramanweb.sql (in the root directory)
-+ Caution : This project is cool
++ Caution : This project is cool 😎
