@@ -1,4 +1,5 @@
 # cms-codeigniter
+
 Simple CMS with Codeigniter + MySQL
 
 ## Screen Shots
@@ -10,5 +11,6 @@ Simple CMS with Codeigniter + MySQL
 ![Upload](https://raw.githubusercontent.com/alfari16/cms-codeigniter/master/ss/post.JPG)
 
 ## Additional
-Database Name : tugaspemrogramanweb.sql (in the root directory)
-Caution : This project is cool
+
++ Database Name : tugaspemrogramanweb.sql (in the root directory)
++ Caution : This project is cool
