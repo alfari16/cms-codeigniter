@@ -24,13 +24,13 @@
             <li id="home">
               <a href="<?php echo base_url()?>">Beranda</a>
             </li>
-            <li class="post">
+            <li id="post">
               <a href="<?php echo base_url()?>post">Lihat Karya</a>
             </li>
-            <li>
+            <li id="upload">
               <a href="<?php echo base_url()?>upload">Upload Karya</a>
             </li>
-            <li>
+            <li >
               <a href="<?php echo base_url(); ?>about">Tentang</a>
             </li>
             <?php if($this->session->userdata('username')!==null){?>
@@ -52,7 +52,7 @@
     var url = location.href;
     var activated=false;
     $('.link').children('li').each(function(index,val){
-      var text = $(val).find('a').text().toLowerCase().replace(' ','');
+      var text = $(val).attr('id')?$(val).attr('id').toLowerCase():null;
       if(url.indexOf(text)>0) {
         $(val).addClass('active');
         activated=true;

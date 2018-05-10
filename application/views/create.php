@@ -42,21 +42,6 @@
           <p class="label-create">Judul</p>
           <input class="form-control special" type="text" name="judul" placeholder="Judul" value="<?php echo isset($result['judul'])?$result['judul']:'';?>">          
         </div>
-        <div class="mt-3 row">
-          <div class="md3">
-            <p class="label-create">Kategori</p>
-            <select name="kategori" class="form-control special" value="<?php echo isset($result['kategori'])?$result['kategori']:'';?>">
-                <option value="desain">Desain</option>
-                <option value="software">Software</option>
-                <option value="robotika">Robotika</option>
-                <option value="iot">IOT</option>
-            </select>
-          </div>
-          <div class="md9">
-            <p class="label-create">Link Karya</p>
-            <input class="form-control special" type="link" name="link" placeholder="Link" value="<?php echo isset($result['link'])?$result['link']:'';?>">
-          </div>
-        </div>
         <p class="label-create mt-3">Deskripsi</p>
         <textarea id="tiny-mce" name="konten" class="mt-3" placeholder="Konten">
           <?php if(isset($result)){echo $result['konten'];}?>

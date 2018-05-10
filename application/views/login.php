@@ -13,5 +13,6 @@
     <p class="text-center">Username/Password tidak ditemukan</p>
 <?php }?>
     <input class="btn" type="submit" value="Login">
+    <p class="helper mt-3">(Username: admin, password: admin)</p>
 <?php echo form_close();?>
 </div>

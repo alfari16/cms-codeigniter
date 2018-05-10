@@ -33,6 +33,8 @@
         'konten' => $konten,
         'id_author' => $this->session->userdata('id'),
         'thumbnail' => $name,
+        // 'link' => $link,
+        // 'id_kategori' => $kategori,
         'slug' => substr($slug,0,20),
         'tanggal' => $tanggal
       ));

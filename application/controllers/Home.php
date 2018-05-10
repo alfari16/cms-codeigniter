@@ -51,6 +51,7 @@ class Home extends CI_Controller {
 		redirect('post');
 	}
 	public function editPost($id){
+		$this->load->helper('url');
 		if($this->session->userdata('username'===null)){ redirect('login?auth=true');}
 		$this->load->library('form_validation');
 		$temp = $this->post->getPostById($id);
@@ -88,7 +89,7 @@ class Home extends CI_Controller {
 				);
 			}
 			$this->post->editPost($data);
-			redirect('tambahpost?edit=yeah');
+			redirect('upload?edit=yeah');
 		}else{
 			$succeed['error'] = array('error' => $this->upload->display_errors());
 			echo "gagal";
@@ -120,7 +121,7 @@ class Home extends CI_Controller {
 		if(!$this->form_validation->run()===FALSE){
 			if($this->upload->do_upload('input_foto')){
 				$this->post->addPost($this->upload->data()['file_name']);
-				redirect('tambahpost?sukses=yeah');
+				redirect('upload?sukses=yeah');
 			}else{
 				$succeed['error'] = array('error' => $this->upload->display_errors());
 			};

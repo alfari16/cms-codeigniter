@@ -7,22 +7,22 @@
       <ul class="social">
         <li>
           <a href="https://facebook.com/alif.irfan16" target="_blank" title="facebook">
-            <img src="assets/icon/facebook.svg" alt="">
+            <img src="<?php echo base_url(); ?>assets/icon/facebook.svg" alt="">
           </a>
         </li>
         <li>
           <a href="https://instagram.com/alfari16" target="_blank" title="instagram">
-            <img src="assets/icon/instagram.svg" alt="">
+            <img src="<?php echo base_url(); ?>assets/icon/instagram.svg" alt="">
           </a>
         </li>
         <li>
           <a href="https://linkedin.com/alfari16" target="_blank" title="linkedin">
-            <img src="assets/icon/linkedin.svg" alt="">
+            <img src="<?php echo base_url(); ?>assets/icon/linkedin.svg" alt="">
           </a>
         </li>
         <li>
           <a href="https://twitter.com/alif_irfan16" target="_blank" title="twitter">
-            <img src="assets/icon/twitter.svg" alt="">
+            <img src="<?php echo base_url(); ?>assets/icon/twitter.svg" alt="">
           </a>
         </li>
       </ul>

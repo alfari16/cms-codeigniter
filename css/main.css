@@ -748,3 +748,7 @@ nav + *{
   height: 300px;
   object-fit: scale-down
 }
+.helper{
+  font-size: 14px;
+  color: #777
+}
