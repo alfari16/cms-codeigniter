@@ -22,6 +22,14 @@
       return $query->result_array();
     }
 
+    public function getUser(){
+      $this->db->select('*');
+      $this->db->from('post');
+      $this->db->where('id_author = '.$this->session->userdata('id'));
+      $query = $this->db->get();
+      return $query->result_array();
+    }
+
     public function addPost($name){
       $this->load->helper('url');
       $judul = $this->input->post('judul');
@@ -69,6 +77,7 @@
       $query = $this->db->get();
       return $query->result_array();
     }
+
 
     public function generateMonth(){
       $date = date('m');

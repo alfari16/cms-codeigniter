@@ -427,14 +427,13 @@ footer .icon{
   background-color: white;
   text-align: center
 }
-.login *{
+.login > *{
   display: block;
   width: 100%
 }
 .login .btn{
   padding: 20px;
   font-weight: 700;
-  margin-top: 39px
 }
 .login .title{
   margin-bottom: 30px;
@@ -751,4 +750,17 @@ nav + *{
 .helper{
   font-size: 14px;
   color: #777
+}
+.author-panel .row{
+  flex-direction: column;
+  padding-top: 20px
+}
+.author-panel .name-label{
+  color: #999;
+}
+.author-panel .name{
+  color: #333;
+  font-size: 26px;
+  text-transform: capitalize;
+  margin-top: 10px
 }

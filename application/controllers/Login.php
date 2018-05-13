@@ -6,6 +6,7 @@ class Login extends CI_Controller {
 		parent::__construct();
 		$this->load->model('User');
 		$this->load->helper('form');
+		$this->load->library('form_validation');
 		$this->load->helper('url_helper');
 	}
 	public function index(){
@@ -15,8 +16,6 @@ class Login extends CI_Controller {
 		if($this->session->userdata('username')!==null) redirect('/');
 	}
 	public function checkLogin(){
-		$this->load->library('form_validation');
-
 		$this->form_validation->set_rules('username','Username','required');
 		$this->form_validation->set_rules('password','Password','required');
 		$error = array();
@@ -25,6 +24,7 @@ class Login extends CI_Controller {
 				$data = $this->User->checkLogin()[0];
 				$this->session->set_userdata(array(
 					'username' => $data['username'],
+					'name' => $data['nama'],
 					'password' => $data['pass'],
 					'id' => $data['id'],
 				));
@@ -41,5 +41,22 @@ class Login extends CI_Controller {
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('login');
+	}
+	public function signup(){
+		$this->form_validation->set_rules('username','Username','required');
+		$this->form_validation->set_rules('password','Password','required');
+		$this->form_validation->set_rules('nama','Nama','required');
+		$error = array();
+		if(!$this->form_validation->run() == FALSE){
+			if(count($this->User->checkSignup())>0){
+				$error['notfound'] = TRUE;
+			}else{
+				if($this->User->signup()) redirect('/');
+			}
+		}
+
+		$this->load->view('header');
+		$this->load->view('signup',$error);
+		$this->load->view('footer');
 	}
 }

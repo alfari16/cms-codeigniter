@@ -30,10 +30,10 @@
             <li id="upload">
               <a href="<?php echo base_url()?>upload">Upload Karya</a>
             </li>
-            <li >
-              <a href="<?php echo base_url(); ?>about">Tentang</a>
-            </li>
             <?php if($this->session->userdata('username')!==null){?>
+            <li id="profile">
+              <a href="<?php echo base_url(); ?>profile">Karya Saya</a>
+            </li>
             <li>
               <a href="<?php echo base_url()?>logout">Logout</a>
             </li>

@@ -13,14 +13,16 @@
             <div class="left">
               <h1 class="post-title"><?php echo $data[0]['judul']; ?></h1>
             </div>
-            <div class="right">
-              <a href="<?php echo base_url().'post/'.$data[0]['slug'];?>/edit">
-                <i class="fa fa-pencil"></i> Edit
-              </a>
-              <a href="<?php echo base_url().'post/'.$data[0]['slug'];?>/hapus">
-                <i class="fa fa-trash"></i> Hapus
-              </a>
-            </div>
+            <?php if($this->session->userdata('id')===$data[0]['id_author']){ ?>
+              <div class="right">
+                <a href="<?php echo base_url().'post/'.$data[0]['slug'];?>/edit">
+                  <i class="fa fa-pencil"></i> Edit
+                </a>
+                <a href="<?php echo base_url().'post/'.$data[0]['slug'];?>/hapus">
+                  <i class="fa fa-trash"></i> Hapus
+                </a>
+              </div>
+            <?php } ?>
           </div>
           <p class="penulis"><?php echo $data[0]['nama']; ?></p>
           <p class="desc">

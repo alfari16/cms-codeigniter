@@ -53,8 +53,9 @@ class Home extends CI_Controller {
 	public function editPost($id){
 		$this->load->helper('url');
 		if($this->session->userdata('username'===null)){ redirect('login?auth=true');}
-		$this->load->library('form_validation');
 		$temp = $this->post->getPostById($id);
+		if($this->session->userdata('id') !== $temp[0]['id_author']) die('Anda bukan pengguna yang sah');
+		$this->load->library('form_validation');
 		if(count($temp)<1){
 			die('Artikel tidak ditemukan');
 		}

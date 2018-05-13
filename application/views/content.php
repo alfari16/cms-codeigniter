@@ -13,7 +13,7 @@
         <p class="penulis jangka">
           <?php if($isIndex) { ?>
           <span>Post terbaru</span>
-          <?php } else{?>
+          <?php } elseif(!isset($userData) && !$isIndex){?>
           <span>Semua post</span>
           <?php }?>
         </p>
@@ -38,9 +38,9 @@
                     <?php echo substr(strip_tags($row['konten']),0,50); ?>...
                   </p>
                   <p class="penulis">
-                    <?php echo $row['nama']; ?>
+                    <?php echo isset($userData)?null:$row['nama']; ?>
                   </p>
-                <?php if($this->session->userdata('username')!==null) {?>
+                <?php if(isset($userData)) {?>
                 <div class="flex-wrap admin-act">
                   <div class="left">
                     <p class="text-muted">Admin:</p>
