@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('post');
+		$this->load->model('Post');
 		$this->load->helper('url_helper');
 	}
 	public function index(){
-		$data['rows'] = $this->post->getPost();
-		$data['sidenavData'] = $this->post->getSidenav();
+		$data['rows'] = $this->Post->getPost();
+		$data['sidenavData'] = $this->Post->getSidenav();
 		$data['isIndex'] = TRUE;
 		$data['sidenav'] = TRUE;
 		$this->load->view('header');
@@ -18,15 +18,15 @@ class Home extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function allPost(){
-		$data['rows'] = $this->post->getPost(TRUE);
+		$data['rows'] = $this->Post->getPost(TRUE);
 		$data['isIndex'] = FALSE;
 		$this->load->view('header');
 		$this->load->view('content',$data);
 		$this->load->view('footer');
 	}
 	public function getPost($id){
-		$data['data'] = $this->post->getPostById($id);
-		$data['sidenavData'] = $this->post->getSidenav();
+		$data['data'] = $this->Post->getPostById($id);
+		$data['sidenavData'] = $this->Post->getSidenav();
 		$data['sidenav'] = TRUE;
 		if(count($data['data'])<1) $data['notfound'] = true;
 		$this->load->view('header');
@@ -35,8 +35,8 @@ class Home extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function deletePost($id){
-		$data['data'] = $this->post->getPostById($id);
-		$data['sidenavData'] = $this->post->getSidenav();
+		$data['data'] = $this->Post->getPostById($id);
+		$data['sidenavData'] = $this->Post->getSidenav();
 		$data['sidenav'] = TRUE;
 		$data['delete'] = TRUE;
 		$data['slug'] = $id;
@@ -47,13 +47,13 @@ class Home extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function doDeletePost($id){
-		$this->post->deletePost($id);
+		$this->Post->deletePost($id);
 		redirect('post');
 	}
 	public function editPost($id){
 		$this->load->helper('url');
 		if($this->session->userdata('username'===null)){ redirect('login?auth=true');}
-		$temp = $this->post->getPostById($id);
+		$temp = $this->Post->getPostById($id);
 		if($this->session->userdata('id') !== $temp[0]['id_author']) die('Anda bukan pengguna yang sah');
 		$this->load->library('form_validation');
 		if(count($temp)<1){
@@ -89,7 +89,7 @@ class Home extends CI_Controller {
 					'thumbnail' => $this->upload->data()['file_name'],
 				);
 			}
-			$this->post->editPost($data);
+			$this->Post->editPost($data);
 			redirect('upload?edit=yeah');
 		}else{
 			$succeed['error'] = array('error' => $this->upload->display_errors());
@@ -121,7 +121,7 @@ class Home extends CI_Controller {
 		
 		if(!$this->form_validation->run()===FALSE){
 			if($this->upload->do_upload('input_foto')){
-				$this->post->addPost($this->upload->data()['file_name']);
+				$this->Post->addPost($this->upload->data()['file_name']);
 				redirect('upload?sukses=yeah');
 			}else{
 				$succeed['error'] = array('error' => $this->upload->display_errors());
@@ -134,6 +134,6 @@ class Home extends CI_Controller {
 
 	public function test(){
 		echo date('m');
-		echo $this->post->generateMonth();
+		echo $this->Post->generateMonth();
 	}
 }
